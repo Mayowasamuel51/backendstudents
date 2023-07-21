@@ -17,13 +17,15 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTo
 
 
 //middiware routes
-const classes = require('./routes/class-route')
-const student_routes = require('./routes/student-route')
+const classes = require('../routes/class-route')
+const student_routes = require('../routes/student-route')
 app.use('/api/students', student_routes)
 app.use('/api/class', classes)
 
 
 app.get('/', (req, res) => {
+    res.setHeader('Content-Type', 'text/html');
+    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.json('hello')
 })
 // global error , unknown error
