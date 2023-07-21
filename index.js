@@ -24,7 +24,7 @@ app.use('/api/class', classes)
 
 
 app.get('/', (req, res) => {
-    res.send('hello')
+    res.json('hello')
 })
 // global error , unknown error
 app.use((error, req, res, next) => {
