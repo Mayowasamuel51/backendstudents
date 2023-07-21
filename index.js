@@ -23,7 +23,9 @@ app.use('/api/students', student_routes)
 app.use('/api/class', classes)
 
 
-
+app.get('/', (req, res) => {
+    res.send('hello')
+})
 // global error , unknown error
 app.use((error, req, res, next) => {
     if (res.headerSent) {
